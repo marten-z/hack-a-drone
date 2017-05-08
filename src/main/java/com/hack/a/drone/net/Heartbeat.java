@@ -44,7 +44,7 @@ public class Heartbeat extends Thread {
 
     private void sendHeartBeat() throws IOException {
         System.out.println("Sending heartbeat...");
-        byte[] heartbeatData = ByteUtils.loadMessageFromFile("ietsmethartslag.bin");
+        byte[] heartbeatData = ByteUtils.loadMessageFromFile("heartbeat.bin");
         int start = 0;
         int len = heartbeatData.length;
         OutputStream out = socket.getOutputStream();

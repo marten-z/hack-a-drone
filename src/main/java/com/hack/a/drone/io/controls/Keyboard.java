@@ -35,41 +35,40 @@ public class Keyboard implements IController, KeyEventDispatcher {
     private void onKeyEvent(KeyEvent e, boolean isPressed) {
         int value = isPressed ? 127 : 0;
         boolean newInput = true;
-        // TODO implement
-//        switch (e.getKeyCode()) {
-//            case // TODO implement (UP)
-//                command.setThrottle(value);
-//                break;
-//            case // TODO implement (DOWN)
-//                command.setThrottle(-value);
-//                break;
-//            case // TODO implement (TURN RIGHT)
-//                command.setYaw(value);
-//                break;
-//            case // TODO implement (TURN LEFT)
-//                command.setYaw(-value);
-//                break;
-//            case // TODO implement (FORWARD)
-//                command.setPitch(value);
-//                break;
-//            case // TODO implement (BACKWARD)
-//                command.setPitch(-value);
-//                break;
-//            case // TODO implement (LEAN RIGHT)
-//                command.setRoll(value);
-//                break;
-//            case // TODO implement (LEAN LEFT)
-//                command.setRoll(-value);
-//                break;
-//            case // TODO implement
-//                command.setTakeOff(isPressed);
-//                break;
-//            case // TODO implement
-//                command.setLand(isPressed);
-//                break;
-//            default:
-//                newInput = false;
-//        }
+        switch (e.getKeyCode()) {
+            case VK_W:
+                command.setThrottle(value);
+                break;
+            case VK_S:
+                command.setThrottle(-value);
+                break;
+            case VK_D:
+                command.setYaw(value);
+                break;
+            case VK_A:
+                command.setYaw(-value);
+                break;
+            case VK_I:
+                command.setPitch(value);
+                break;
+            case VK_K:
+                command.setPitch(-value);
+                break;
+            case VK_L:
+                command.setRoll(value);
+                break;
+            case VK_J:
+                command.setRoll(-value);
+                break;
+            case VK_UP:
+                command.setTakeOff(isPressed);
+                break;
+            case VK_DOWN:
+                command.setLand(isPressed);
+                break;
+            default:
+                newInput = false;
+        }
 
         if (commandListener != null && newInput) {
             commandListener.onCommandReceived(command);

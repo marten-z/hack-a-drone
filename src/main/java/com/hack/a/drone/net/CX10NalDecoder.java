@@ -39,7 +39,7 @@ public class CX10NalDecoder {
 
     public byte[] readNal() throws IOException {
         if (!initialized) {
-            byte[] bytes = ByteUtils.loadMessageFromFile("ietsmetvideo.bin");
+            byte[] bytes = ByteUtils.loadMessageFromFile("video.bin");
             outputStream.write(bytes);
             byte[] response = new byte[106];
             inputStream.read(response);

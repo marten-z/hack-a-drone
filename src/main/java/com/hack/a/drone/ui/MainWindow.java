@@ -58,6 +58,9 @@ public class MainWindow extends JFrame implements ActionListener {
                 if (e.getSource() == btnConnect) {
                     onConnectClicked();
                 }
+                if (e.getSource() == btnControls) {
+                    onControlsClicked();
+                }
                 // TODO call your actions here
             }
         }).start();
@@ -222,9 +225,11 @@ public class MainWindow extends JFrame implements ActionListener {
     private MainWindowModel getModel() {
         MainWindowModel model = new MainWindowModel();
         model.setBtnConnectEnabled(btnConnect.isEnabled());
+        model.setBtnControlsEnabled(btnControls.isEnabled());
 	    // TODO implement
 
         model.setBtnConnectText(btnConnect.getText());
+        model.setBtnControlsText(btnControls.getText());
 	    // TODO implement
         model.setLblStatusText(lblStatus.getText());
         return model;
@@ -234,7 +239,9 @@ public class MainWindow extends JFrame implements ActionListener {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 btnConnect.setEnabled(model.isBtnConnectEnabled());
+                btnControls.setEnabled(model.isBtnControlsEnabled());
                 btnConnect.setText(model.getBtnConnectText());
+                btnControls.setText(model.getBtnControlsText());
 
 	            // TODO implement
 
